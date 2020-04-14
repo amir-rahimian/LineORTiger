@@ -24,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
     enum currantpl {ONE,TWO, NULL}
     currantpl currantplayer = currantpl.ONE;
     currantpl[] status = new currantpl[9];
-
     int [][] winstatus = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,9 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 VS.animate().alpha(1);
             }
         });
-
     }
-
     @SuppressLint("SetTextI18n")
     public void  imgIsClick (View imageview) {
         ImageView tappedImageView = (ImageView) imageview;
@@ -91,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
         }
         tappedImageView.animate().rotation(360).setDuration(500);
         tappedImageView.setClickable(false);
-
-
         //WHO IS WINNER
         boolean isAWinner = false;
         for (int[] winner : winstatus) {
@@ -101,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 isAWinner = true;
                 //TO uncheckable
                 tappedImageView.animate().rotation(3600).setDuration(500);
-                for (int i = 0 ; i<gridLayout.getChildCount() ;i++){
+                for (int i = 0; i < gridLayout.getChildCount(); i++) {
                     ImageView imageView = (ImageView) gridLayout.getChildAt(i);
                     imageView.setClickable(false);
                 }
@@ -126,12 +120,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 VS.setText(" THE WINNER IS ");
                 appname.setText("");
-
             }
         }
-
         //NO WINNER
-
         if (!isAWinner) {
             int ok = 0;
             for (int i = 0; i <= 8; i++) {
