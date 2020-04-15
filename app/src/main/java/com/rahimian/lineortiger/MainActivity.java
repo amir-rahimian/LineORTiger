@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 VS.setText("VS");
                 appname.setText(R.string.app_name);
                 for (int i = 0 ; i<=8 ; i++){status[i]= currantpl.NULL;}
-                if(currantplayer==currantpl.ONE){ ptwo.animate().translationXBy(-150); }else if (currantplayer==currantpl.TWO){ pone.animate().translationXBy(150); }
+                if(currantplayer==currantpl.ONE){ ptwo.animate().translationXBy(-150); }else if (currantplayer==currantpl.TWO){currantplayer = currantpl.ONE; pone.animate().translationXBy(150); }
                 VS.animate().translationYBy(50);
                 pone.animate().alpha(1).scaleX(1.2f).scaleY(1.2f).setDuration(100);
                 ptwo.animate().alpha(.3f).scaleX(1).scaleY(1).setDuration(100);
