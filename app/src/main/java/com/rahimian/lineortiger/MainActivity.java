@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.gridlayout.widget.GridLayout;
 
 import android.annotation.SuppressLint;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,12 +17,13 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     //my views
-    private TextView pone,ptwo,VS,appname;
-    private Button btnagain;
-    private ImageView dark;
+    private TextView pone,ptwo,VS,appname ,tigerscr,lionscr;
+    private Button btnagain ;
+    private ImageView dark,zero;
     private GridLayout gridLayout ;
     //enum
     enum currantpl {ONE,TWO, NULL}
+    private MediaPlayer mediaPlayer;
     currantpl currantplayer = currantpl.ONE;
     currantpl[] status = new currantpl[9];
     int [][] winstatus = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //findViewById
+        zero = findViewById(R.id.zero);
+        lionscr=findViewById(R.id.lionscore);
+        tigerscr=findViewById(R.id.tigerscore);
         gridLayout = findViewById( R.id.gridLayout);
         appname=findViewById(R.id.appname);
         VS   = findViewById(R.id.VS);
@@ -58,8 +63,10 @@ public class MainActivity extends AppCompatActivity {
                     imageView.setImageResource(0);imageView.setBackgroundResource(R.color.orange);imageView.setAlpha(.5f);imageView.setClickable(true);
                 }
                 dark.setVisibility(View.INVISIBLE);
+                zero.setVisibility(View.VISIBLE);lionscr.setVisibility(View.VISIBLE);tigerscr.setVisibility(View.VISIBLE);
                 btnagain.animate().translationYBy(2000).setDuration(1000);
                 VS.animate().alpha(1);
+                currantplayer = currantpl.ONE;
             }
         });
     }
@@ -91,8 +98,12 @@ public class MainActivity extends AppCompatActivity {
         boolean isAWinner = false;
         for (int[] winner : winstatus) {
             if (status[winner[0]] == status[winner[1]] && status[winner[1]] == status[winner[2]] && status[winner[0]] != currantpl.NULL) {
-                Toast.makeText(MainActivity.this, "win!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "win!", Toast.LENGTH_SHORT).show();
                 isAWinner = true;
+                //invsibility
+                zero.setVisibility(View.INVISIBLE);lionscr.setVisibility(View.INVISIBLE);tigerscr.setVisibility(View.INVISIBLE);
+                mediaPlayer = MediaPlayer.create(this,R.raw.win);
+                mediaPlayer.start();
                 //TO uncheckable
                 tappedImageView.animate().rotation(3600).setDuration(500);
                 for (int i = 0; i < gridLayout.getChildCount(); i++) {
@@ -109,11 +120,13 @@ public class MainActivity extends AppCompatActivity {
                 dark.animate().alpha(1).setDuration(100);
 
                 if (currantplayer == currantpl.ONE) {
+                    int scr = Integer.parseInt(tigerscr.getText().toString());scr++;tigerscr.setText(scr+"");
                     pone.animate().alpha(0);
                     ptwo.animate().alpha(1).scaleX(1.2f).scaleY(1.2f).translationXBy(150).setDuration(100);
                     VS.animate().translationYBy(-50);
 
                 } else {
+                    int scr = Integer.parseInt(lionscr.getText().toString());scr++;lionscr.setText(scr+"");
                     ptwo.animate().alpha(0);
                     pone.animate().alpha(1).scaleX(1.2f).scaleY(1).translationXBy(-150).setDuration(100);
                     VS.animate().translationYBy(-50);
@@ -131,7 +144,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if (ok == 9) {
-                Toast.makeText(MainActivity.this, "NO WINNER! \n TRY AGAIN", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "NO WINNER! \n TRY AGAIN", Toast.LENGTH_SHORT).show();
+                //invsibility
+                zero.setVisibility(View.INVISIBLE);lionscr.setVisibility(View.INVISIBLE);tigerscr.setVisibility(View.INVISIBLE);
                 btnagain.animate().translationYBy(-2000).setDuration(1000);
                 dark.setVisibility(View.VISIBLE);
                 dark.animate().alpha(1).setDuration(100);
@@ -149,6 +164,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    // 0 --------- 0
+    public void zeroing (View zero){
+        zero.animate().rotation(720).setDuration(2000);
+        tigerscr.setText("0");
+        lionscr.setText("0");
     }
 }
 
