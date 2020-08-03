@@ -3,6 +3,6 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#DD2C00</color>
-    <color name="back" >#ffbb33</color>
-    <color name="orange" >#FFAB00</color>
+    <color name="back" >#33B8FF</color>
+    <color name="orange" >#0022FF</color>
 </resources>
