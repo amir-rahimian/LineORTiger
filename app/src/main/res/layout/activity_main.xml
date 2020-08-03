@@ -16,8 +16,8 @@
         android:scaleType="centerCrop"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dark" />
 
@@ -44,8 +44,8 @@
         android:text="@string/app_name"
         android:textColor="#FF6D00"
         android:textSize="36sp"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -59,8 +59,8 @@
         android:textColor="#FF6D00"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-        app:layout_constraintRight_toLeftOf="@+id/VS"
         app:layout_constraintLeft_toLeftOf="@+id/gridLayout"
+        app:layout_constraintRight_toLeftOf="@+id/VS"
         app:layout_constraintTop_toBottomOf="@+id/appname" />
 
     <TextView
@@ -74,8 +74,8 @@
         android:textColor="#FF6D00"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-        app:layout_constraintRight_toRightOf="@+id/gridLayout"
         app:layout_constraintLeft_toRightOf="@+id/VS"
+        app:layout_constraintRight_toRightOf="@+id/gridLayout"
         app:layout_constraintTop_toBottomOf="@+id/appname" />
 
     <TextView
@@ -87,8 +87,8 @@
         android:textColor="#FF6D00"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/potxt"
-        app:layout_constraintRight_toRightOf="@+id/potxt"
-        app:layout_constraintLeft_toLeftOf="@+id/potxt" />
+        app:layout_constraintLeft_toLeftOf="@+id/potxt"
+        app:layout_constraintRight_toRightOf="@+id/potxt" />
 
     <TextView
         android:id="@+id/textView4"
@@ -133,8 +133,8 @@
         app:columnCount="3"
         app:layout_constraintBottom_toBottomOf="parent"
 
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appname"
         app:rowCount="3">
 
@@ -266,14 +266,15 @@
         android:textColor="#FF6D00"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/pttxt"
-        app:layout_constraintRight_toRightOf="@+id/pttxt"
-        app:layout_constraintLeft_toLeftOf="@+id/pttxt" />
+        app:layout_constraintLeft_toLeftOf="@+id/pttxt"
+        app:layout_constraintRight_toRightOf="@+id/pttxt" />
 
     <ImageView
         android:id="@+id/zero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:contentDescription="TODO"
         android:onClick="zeroing"
         app:layout_constraintBottom_toTopOf="@+id/VS"
         app:layout_constraintEnd_toStartOf="@+id/lionscore"
